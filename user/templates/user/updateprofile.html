@@ -1,0 +1,55 @@
+
+{% extends 'user/base.html' %}
+{% load static %}
+{% load bootstrap %}
+{%  block css %}
+	<link rel="stylesheet" href="{% static 'user/profile.css' %}" type="text/css" />
+
+	<style type="text/css">
+		#id_members{
+		
+		}
+
+	</style>
+
+{%  endblock %}
+{% block content %}
+<span class="nav-below"></span>
+<hr/>
+<div class="container bg-white">
+		<div class="row">
+			<div class="col-md-8">
+				<form method="Post" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ unique_form|bootstrap }}
+					{{ profile_form|bootstrap }}
+					
+					<button class="btn btn-primary">Update Profile</button>
+
+				</form>
+				
+
+			</div>
+			<div class="col-md-4 d-sm-none d-md-block hide-small">
+				<div class="content-section">
+					<h3 class="text-center">Shortcuts</h3>
+					
+					<ul>
+						<a href="posts.html" class="list-group-item  float-center btn shortcuts dropdown-item text-center">Go to your Posts</a>
+						
+						<li class="list-group-item btn shortcuts" >Create Post</li>
+						<li class="list-group-item btn shortcuts">Create Project</a></li>
+						<li class="list-group-item btn shortcuts">Create Project Banner</li>
+						<li class="list-group-item btn shortcuts">First Page </li>
+						<li class="list-group-item btn shortcuts">Second Page</li>
+					</ul>
+				    		
+				</div>
+			</div>
+			
+		</div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,129 @@
+
+<!DOCTYPE HTML>
+<html>
+   <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" 
+  content="width=device-width" initial-scale="1.0"/>
+
+  <title>Funny Learning</title>
+  
+  <!-- css style sheets and Bootstrap -->
+  
+  <link rel="stylesheet" type="text/css" 
+   href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <script type="text/javascript" charset="utf-8"
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+ 
+   
+
+  
+<style type="text/css">
+  	.background-box{
+	  height: 100vh;
+	  background: url('https://bootdey.com/img/Content/bg1.jpg') no-repeat center center fixed; 
+	 -webkit-background-size: cover;
+		 border: 1px solid lightblue;/* don't remove */
+		}
+
+
+
+	.box-container{
+	 
+	  padding-top: 70px;
+	 
+	  background-image: linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+
+	}
+
+	.box-form{
+	 
+	  margin: 10px 20px;
+	  padding: 10;
+	  padding-left: 20px;
+	  
+	}
+	.box-label{
+	  color: blue;
+	  border-bottom: 1px solid #008e9b;
+	  padding: 5px;
+	}
+
+	.dark{
+
+	  color: black;
+	}
+
+	#choose{
+
+	  width: 220px;
+
+	}
+	.box-input,#id_username,#id_password{
+	  padding: 10px 0;
+	  border: none;
+	  background: transparent;
+	  display: block;
+	  border-bottom: 3px solid blue;
+	  border-radius: 10px;
+	  margin-bottom: 10px;
+	  color: #ffe4f9;
+	}
+	.box-input:hover{
+	  background: #86a8e7;
+	}
+	@media (min-width:960px){
+	  .box-container{
+	    margin-top: 30%;
+	    border-radius: 15px;
+	  }
+	}
+
+	@media (orientation: landscape){
+	  .dbackground-box{
+	    height: 100%;
+	  }
+	  .box-container{
+	    margin-top:1%;
+	  }
+	}
+</style>
+    
+  </head>
+  
+    <body>
+    <div class="background-box">
+      <div class="box-container container">
+        <div class="box-logo text-center text-primary font-weight-bold">
+          <h3>
+         <span class="dark">F</span>unny 
+         <span class="dark">L</span>earning </h3>
+        </div>
+        {%  if form.errors %}
+        {{ errors }}
+        {% endif %}
+
+        {% if messages %}
+        	{% for message in messages %}
+        		{{ message }}
+        	{% endfor %}
+
+        {% endif %}
+
+        <form method="post" action="" >
+        	{% csrf_token %}
+        	{{ form.as_p }}
+        	<button class="btn btn-primary  text-white text-weight-bold">login</button>
+        </form>
+       
+      </div>
+    
+    </div>
+  </body>
+  
+  
+  
+</html>

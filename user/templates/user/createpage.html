@@ -1,0 +1,42 @@
+
+{% extends 'user/base.html' %}
+{% load static %}
+{%  block css %}
+	<link rel="stylesheet" href="{% static 'user/profile.css' %}" type="text/css" />
+
+{%  endblock %}
+
+{% block content %}
+<span class="nav-below"></span>
+<div class="container bg-white">
+		<div class="row">
+			<div class="col-md-8">
+
+				<form method="post">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<button class="btn btn-primary">Create Page</button>
+					
+				</form>
+					
+
+				
+
+					
+
+					
+							
+			</div>
+			</div>
+			<div class="col-md-4 d-sm-none d-md-block hide-small">
+				<div class="content-section">
+					<h3 class="text-center">Shortcuts</h3>
+					
+					
+				    		
+				</div>
+			</div>
+			
+		</div>
+    </div>
+{% endblock %}

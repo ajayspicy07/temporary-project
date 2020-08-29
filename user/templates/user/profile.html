@@ -1,0 +1,388 @@
+
+{% extends 'user/base.html' %}
+{% load static %}
+{%  block css %}
+	<link rel="stylesheet" href="{% static 'user/profile.css' %}" type="text/css" />
+
+{%  endblock %}
+
+{% block content %}
+<span class="nav-below"></span>
+<div class="container bg-white">
+		<div class="row">
+			<div class="col-md-8">
+
+				<div class="profile-card  my-2 pb-2 shadow  ">
+					
+					<div class="pl-4 text-center ">
+						{{ profile.img.url }}
+						<img src="{{ profile.img.url }}" 
+						class="rounded-circle ml-2 ml-lg-4 mt-4 p-1"
+						style="width: 200px; height: 200px;">
+						<form class="mt-2 ml-lg-4"  id="follow">
+							<a class="btn btn-primary px-5  text-white">
+   			
+							Follow</a>
+						</form>
+						<form id="follow2">
+						 	
+							<button   class="btn btn-primary">
+							Followers </button>
+						</form>
+						
+					</div>
+					<div class=" mt-1 p-1"> 
+						<div class="divider border-0 ">
+							<h3> {{ profile.content_object.full_name }} </h3>
+							<a href="{% url 'user:updateprofile' profile.slug profile.content_object.is_page %}" class="text-secondary">Edit <i class="fa fa-edit"></i></a>
+						</div>
+					
+						<p><span>@</span>{{ profile.content_object.profile_name }} 
+							</p>
+						<p>{{ profile.content_object.college }}</p>
+
+						{% if profile.content_object.is_page %}	
+							<h4>Members</h4>
+							{%  for members in members %}
+								<p>{{ members }}</p>
+							
+							{% endfor %}
+						{% else %}
+						<p> User Mode: {{ profile.content_object.user_mode }} </p>      
+
+
+						<p>Email:<span class=""></span> {{ profile.content_object.email }} </p>
+
+						{% endif %}
+						<p> {{ profile.description}} </p>
+						
+						
+					</div>
+
+					<div class="mt-2 text-center">
+						<div class="d-inline-block">
+							<p class="text-center m-0 ">1000</p>
+							
+							
+							<button type="button" class="btn btn-secondary border-0 m-0 pt-0 " data-toggle="modal" 
+							data-target="#exampleModalCenter" id="for_followers">
+								Followers
+	 
+							</button>
+
+
+						
+						</div>
+						<div class="d-inline-block">
+							<p class="text-center m-0  ">1000</p>
+							
+							<button type="button" class="btn btn-outline-secondary border-0 m-0 pt-0 " data-toggle="modal" data-target="#exampleModalCenter2">
+								Following
+	 
+							</button>
+						
+						
+						</div>
+						
+
+					</div>
+					<div class="dropdown d-inline-block d-sm-block d-none  d-md-none float-right py-1 my-4 text-center">
+							<button class="btn btn-primaray dropdown-toggle bg-success text-white" type="button" id="dropdown-menu-button" data-toggle="dropdown" aria-expanded="false" aria-haspopup>
+							  Shortcuts
+							</button>
+							<div class="dropdown-menu " aria-labelledby="dropdown-menu-button">    
+								<a href="posts.html" class="dropdown-item list-group-item shortcuts">Go to your Posts</a>
+						
+								<a href="d" class="dropdown-item list-group-item shortcuts">Create Project</a>
+								<a href="dd" class="dropdown-item shortcuts">Create Post</a>
+								<a class="list-group-item dropdown-item shortcuts" >Create Post</a>
+								<a class="list-group-item btn shortcuts">Create Project</a>
+								
+							</div>
+					
+					</div>
+
+					
+							
+				</div>
+
+				
+
+			    <div class=" p-3 shadow rounded my-4 ">
+					<div class="divider bg-light my-3 p-2">
+						<h2  >Posts</h2>
+						<a href="folder.html" class="align-center">see more</a>
+					</div>
+					<div>
+						<h4>My first post</h4>
+						<p>Goood to see you all of the </p>
+					</div>
+					<div>
+						<h4>My SEcond post</h4>
+						<p>My name is aAja kumare what else you can do</p>
+					</div>
+					<article class="media border-0 content-section-main ">
+						<div class="media-body  p-0">
+						
+							<h4 class="article-title-border pb-2">
+								<a href="#" class="article-title ">
+									Python Part 4 , Go and grab the opurtunity
+								</a>
+								<i class="fa float-right text-white fa-bookmark"></i>
+							</h4>
+							<i class="fa float-right text-white fa-bookmark"></i>
+							
+						
+							<div class="article-metadata border-bottom pb-2">
+								<div>
+									
+									
+									<p class="text-muted float-right">  3 June,2020</p>
+								</div>
+								<p><i class="fa fa-eye"></i> 20 views 
+									<i class="fa fa-sign-language"></i> 50 appreciations
+								</p>
+								<div class="article-tags">
+									<a class="tags">Python</a>
+									<a class="tags">Django</a>
+								    <a class="tags">Html</a>
+									<a href="" class="tags">Wow </a>
+								</div>
+							</div>
+
+							
+					
+
+							<div class="article-content text-muted">
+								<p>My name is Ajay Kumar and I wnat to kanow how are the things goint gin th ps f </p>
+								
+							</div>
+							<button type="submit" class="btn btn-outline-info">See the full Post</button>
+					
+						
+						</div>
+						
+					</article>
+					<article class="media border-0 content-section-main ">
+						<div class="media-body  p-0">
+						
+							<h4 class="article-title-border pb-2">
+								<a href="#" class="article-title ">
+									Python Part 4 , Go and grab the opurtunity
+								</a>
+								<i class="fa float-right text-white fa-bookmark"></i>
+							</h4>
+							<i class="fa float-right text-white fa-bookmark"></i>
+							
+						
+							<div class="article-metadata border-bottom pb-2">
+								<div>
+									
+									
+									<p class="text-muted float-right">  3 June,2020</p>
+								</div>
+								<p><i class="fa fa-eye"></i> 20 views 
+									<i class="fa fa-sign-language"></i> 50 appreciations
+								</p>
+								<div class="article-tags">
+									<a class="tags">Python</a>
+									<a class="tags">Django</a>
+								    <a class="tags">Html</a>
+									<a href="" class="tags">Wow </a>
+								</div>
+							</div>
+
+							
+					
+
+							<div class="article-content text-muted">
+								<p>My name is Ajay Kumar and I wnat to kanow how are the things goint gin th ps f </p>
+								
+							</div>
+							<button type="submit" class="btn btn-outline-info">See the full Post</button>
+					
+						
+						</div>
+						
+					</article>
+					
+					
+			    </div>
+			     <div class="p-3 shadow rounded my-4">
+					<div class="divider bg-light mt-2 p-2">
+						<h2 >Projects</h2>
+						<a href="#" class="align-center">see more</a>
+					</div>
+					<div>
+						<h4>My first project</h4>
+						<p>Sker is good dont worry</p>
+					</div>
+					<div>
+						<h4>My SEcond project</h4>
+						<p>Whats so ever my name is</p>
+					</div>
+			    </div>
+			
+
+
+			</div>
+			<div class="col-md-4 d-sm-none d-md-block hide-small">
+				<div class="content-section">
+					<h3 class="text-center">Shortcuts</h3>
+					
+					<ul>
+						<a href="posts.html" class="list-group-item  float-center btn shortcuts dropdown-item text-center">Go to your Posts</a>
+
+
+						<a href="{% url 'user:createpage' %}" class="list-group-item  float-center btn shortcuts dropdown-item text-center">Create Page</a>
+						
+						<li class="list-group-item btn shortcuts" >Create Post</li>
+						<li class="list-group-item btn shortcuts">Create Project</a></li>
+						<li class="list-group-item btn shortcuts">Create Project Banner</li>
+						<li class="list-group-item btn shortcuts">First Page </li>
+						<li class="list-group-item btn shortcuts">Second Page</li>
+					</ul>
+				    		
+				</div>
+			</div>
+			
+		</div>
+    </div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  	<div class="modal-dialog modal-dialog-centered" role="document">
+		  	 	<div class="modal-content">
+			      	<div class="modal-header followers-header">
+			        	<h5 class="modal-title text-center" id="exampleModalLongTitle">Followers</h5>
+			        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          	<span aria-hidden="true">&times;</span>
+			        	</button>
+			      	</div>
+			      	<div class="modal-body followers-body" id="followers-body">
+			      		
+		      		</div>
+							
+
+			      </div>
+			</div>
+</div>
+	
+
+
+
+{% endblock %}
+
+   {% block javascript %}
+   	<script type="text/javascript">
+
+   		/*
+   		$("#follow").submit(function(event){
+   			event.preventDefault();
+   			alert('clicked');
+
+   			$.ajax({
+   				type: 'POST',
+   				url :"{% url 'user:follow' pk=profile is_page=profile.content_object.is_page %}",
+   				success:function(){
+   					console.log('great');
+   				};
+
+   			});
+
+   			
+   			
+   		});
+		*/
+	$(document).ready(function(){
+		$('#follow').on('click',function(event){
+			console.log('clicked');
+			event.preventDefault();
+
+			$.ajax({
+				type : "POST",
+				url  :  "{% url 'user:follow' pk=profile.slug is_page=profile.content_object.is_page %}",
+   				
+				success: function(msg){
+					if (msg=='Created'){
+						//alert('created ');
+						$("#follow .btn").text('Following');
+						console.log(this);
+					}
+					else{
+						//alert('deleted');
+						$("#follow .btn").text('Follow');
+						
+					}
+
+				}
+   			
+			});
+			return false;
+		});
+
+
+		$('#follow2').on('click', function(event){
+			console.log('clicked');
+			event.preventDefault();
+
+			$.ajax({
+				type : "POST",
+				url  :  "{% url 'user:follows' pk=profile.slug %}",
+   				
+				success: function(){
+					alert('Created New User');
+
+				}
+   			
+			});
+			return false;
+		});
+
+
+		$('#for_followers').on('click',function(event){
+			console.log('clicked');
+			event.preventDefault();
+
+			$.ajax({
+				url  :  "{% url 'user:for_followers' %}",
+   				
+				success: function(msg){
+					console.log(msg)
+					$("#followers-body").empty();
+					for(i=0; i<msg.length ; i++){
+						name=msg[i].name;
+						img=msg[i].img;
+						slug=msg[i].slug;
+
+						var img_html = '<img src="'+img+'" class="rounded-circle profile-small-image-follower">'
+						var name_html = '<span class="search-sort__sort"><a href="/p/'+slug+'/">'+name+'</a></span>'
+
+						$("#followers-body").append('<div>'+img_html+name_html+'</div>')
+
+
+						
+					
+					}
+					if(msg.length==0){
+						$("#followers-body").append('<h4> No followers yet</h4>')
+
+					}
+					$("#exampleModalCenter").modal('show');
+
+				}
+   			
+			});
+			return false;
+		});
+
+
+
+
+	});
+
+
+   		// url :"{% url 'user:follow' pk=profile is_page=profile.content_object.is_page %}",
+   				
+   	</script>
+
+
+   {% endblock %}
