@@ -43,10 +43,13 @@ def postdetail(request,pk):
   key=post.slug
   session = request.session.get(key)
   if request.user.is_authenticated and get_ip(request) and not session:
-    #if timezone.now()-request.user.last_login>timedelta(minutes=0):
+    #if timezone.now()-request.user.user.previous_login>timedelta(minutes=1):
+      #print('kljdsf;s')
       post.views+=1
       post.save()
       request.session[key]=True
+  
+
 
   context={
   'post':post

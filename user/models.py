@@ -8,7 +8,7 @@ from django.db import models
 from django.utils.text import slugify as inbuilt_slugify
 
 from django.contrib.auth.models import User as auth_user
-
+from django.utils import timezone
 from slugify import UniqueSlugify,Slugify
 from PIL import Image
 
@@ -49,6 +49,7 @@ class User(auth_user):
   dob         = models.DateField(blank=False)
   user_mode   = models.CharField(max_length=10, choices=TYPE, default ='STUDENT')
   date_created  = models.DateTimeField(auto_now_add=True, blank=False)
+  #previous_login = models.DateTimeField(default=timezone.now)
   profile      = GenericRelation('Profile', related_query_name='users')
 
 

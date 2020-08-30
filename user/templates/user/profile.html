@@ -1,5 +1,5 @@
 
-{% extends 'user/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {%  block css %}
 	<link rel="stylesheet" href="{% static 'user/profile.css' %}" type="text/css" />
@@ -231,16 +231,10 @@
 					<h3 class="text-center">Shortcuts</h3>
 					
 					<ul>
-						<a href="posts.html" class="list-group-item  float-center btn shortcuts dropdown-item text-center">Go to your Posts</a>
-
-
+					
+						<a href="{% url 'post:Create_Post' %}" class="list-group-item  float-center btn shortcuts dropdown-item text-center">Create Post</a>
 						<a href="{% url 'user:createpage' %}" class="list-group-item  float-center btn shortcuts dropdown-item text-center">Create Page</a>
 						
-						<li class="list-group-item btn shortcuts" >Create Post</li>
-						<li class="list-group-item btn shortcuts">Create Project</a></li>
-						<li class="list-group-item btn shortcuts">Create Project Banner</li>
-						<li class="list-group-item btn shortcuts">First Page </li>
-						<li class="list-group-item btn shortcuts">Second Page</li>
 					</ul>
 				    		
 				</div>

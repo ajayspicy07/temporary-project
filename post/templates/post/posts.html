@@ -30,39 +30,53 @@
 		<div class="row">
 			<div class="col-md-8 bg-white">
 				<div class="search-sort p-1 m-1">
-					<form method="GET">
-					{{ filter.form|bootstrap }}
 					
-			
-					<button class="btn btn-primary" type="submit"> Search </button>
-					</form>
-					<form method="post" class="">
+
+					<form method="GET" class="">
 						<div class="search-sort__divider  py-2 my-2">
-							<input type="text" name="" placeholder="Search for Posts" class="form-control px-1">
+							{{ filter.form.title|bootstrap }}
 							<span></span>
-							<button class="btn btn-primary px-1 " type="submit">Search</button>
+							<button class="btn btn-primary px-1 " 
+							type="submit">Search</button>
+
+						</div>
+
+						<div class="row">
+							<div class="search-sort__sort col-md-6">
+				
+								 {{ filter.form.sorting|bootstrap }}
+							</div>
+							<div class="search-sort__sort col-md-6">
+						
+								{{ filter.form.filtering|bootstrap }}
+							</div>
+						</div>
+
+					</form>
+
+
+
+					<form method="GET" class="">
+						<div class="search-sort__divider  py-2 my-2">
+							{{ filter.form.title }}
+							<span></span>
+							<button class="btn btn-primary px-1 " 
+							type="submit">Search</button>
 
 						</div>
 
 						<div class="row">
 							<div class="search-sort__sort col-md-6">
 								<small class="m-0">Sort by </small>
-								<select class="p-1">
-									<option> Latest </option>
-									<option> Views </option>
-									<option> Appreciations </option>
-								</select>
+								 {{ filter.form.sorting }}
 							</div>
 							<div class="search-sort__sort col-md-6">
 								<p class="m-0">Filter by </p>
-								<select class="p-1">
-									<option> All Posts </option>
-									<option> My College </option>
-									<option> Following </option>
-								</select>
+								{{ filter.form.filtering }}
 							</div>
 						</div>
-					</form>
+
+					</form>d
 
 				</div>
 

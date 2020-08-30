@@ -13,6 +13,7 @@ from . import views
 app_name = 'user'
 
 urlpatterns = [
+    path('', views.home),
     path('signup/', views.signup),
     path('sign/',views.sign),
     path('home/' , views.home, name='home'),

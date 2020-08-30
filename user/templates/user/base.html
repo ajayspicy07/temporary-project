@@ -62,13 +62,10 @@
                  </button>
                 </form>
                 <a class="nav-item nav-link font-weight-bold "
-                    href="home.html">Home</a>
+                    href="{% url 'user:home' %}">Home</a>
                 <a class="nav-item font-weight-bold  nav-link"
-                    href="posts.html">Posts</a>
-                <a class="nav-item font-weight-bold nav-link" 
-                    href="courses.html">Courses</a>
-                <a class="nav-item  font-weight-bold  nav-link " 
-                    href="about.html">About us </a>
+                    href="{% url 'post:Posts' %}">Posts</a>
+              
                {% if user.is_authenticated %}      
                 <a class="text-primary d-none font-weight-bold d-md-block nav-link" 
                     href="{% url 'user:profile' user.username %}">Profile</a>
@@ -92,6 +89,244 @@
     </nav>
     <span class="nav-below"></span>
     {% block content %}
+      <style type="text/css">
+        /* Only nav-bar css     */
+/* For mobile -view     */
+.nav-form-inline{
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 1fr 0.1fr;
+}
+.navbar{
+  background-image: linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+.nav-box-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.main-link{
+  text-decoration: none;
+  background-color: #1e90ff;
+  color:white;
+  margin:10px;
+  padding: 10px;
+}
+.main-link:hover{
+  background-color: white;
+  color:#1e90ff;
+  text-decoration: none;
+}
+/* Website Moto */
+.index-box{
+  margin-top: 55px;
+  background-color: #1e90ff;
+  color:white;
+  width:100%;
+  height: 300px;
+  border: 2px solid blue;
+  padding: 20px;
+}
+.index-box > p{
+  font-size: 30px;
+}
+/*  website description text*/
+.index-text{
+  font-style: oblique;
+  background-color: #FFE3F1 ;
+  margin-top: 20px ;
+  padding: 3%;
+}
+
+
+/* Courses box css */
+.cource-card{
+  
+  box-shadow: 2px 3px 3px green;
+  border-bottom: 4px solid blue;
+  
+}
+
+.contrib-name{
+  border: 1px solid orange;
+  
+  background-color: orange ;
+  color: white;
+  padding: 2px 0;
+  font-weight: bold;
+ 
+}
+
+.name-tag{
+  padding: 2px 0;
+  margin-left: 60%;
+  margin-right: 5px;
+  position: relative;
+  top :25px;
+}
+
+.cource-container{
+  justify-content: center;
+  padding: 10px 0;
+  background-color:##FFE4FB;
+ 
+}
+/* Confirm button in courses css*/
+.btn-confirm {
+  border-radius: 30px;
+   border:none;
+ #border-color:#5DBE7C;
+}
+.btn-confirm-click:hover{
+  background-color: #5DBE7C;
+  border-color: #5DBE7C;
+  
+  
+}
+
+@media (min-width:960px){
+  .nav-link{
+    padding: 20px 0;
+  }
+  .nav-below{
+    margin-top:80px;
+  }
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </style>
+
+      <div class="index-box nav-below text-center ">
+      <p>En<span class="text-warning font-weight-bold">joy</span> the Learning </p>
+      <p>and</p>
+      <p>Learn with Fun</p>
+      <blockquote>-Funny Learning</blockquote>
+      </div>
+      <div class="container">
+        <div class="index-text ">
+          <p> This is a platform where you learn with the good position If you skip the  closing tag, the paragraph element will close automatically in HTML5. However, XHTML is stricter and doesn't allow omitting tags.
+         You can separate your paragraphs with first-line indentation instead of margins by using the CSS text-indent property.
+           If you need more blank space between paragraphs, use the CSS margin property. Don't add empty paragraphs, as it may confuse the users of assistive technologies.If you skip the  closing tag, the paragraph element will close automatically in HTML5. However, XHTML is stricter and doesn't allow omitting tags.
+         You can separate your paragraphs with first-line indentation instead of margins by using the CSS text-indent property.
+          If you need more blank space between paragraphs, use the CSS margin property. Don't add empty paragraphs, as it may confuse the users of assistive technologies.If you skip the closing tag, the paragraph element will close automatically in HTML5. However, XHTML is stricter and doesn't allow omitting tags.
+        You can separate your paragraphs with first-line indentation instead of margins by using the CSS text-indent property.
+        If you need more blank space between paragraphs, use the CSS margin property. Don't add empty paragraphs, as it may confuse the users of assistive technologies.
+           </p>
+         </div>
+        <h4 class="text-center mt-3">Premium Courses For Free</h4>
+      <div class="cource-container text-center row">
+        
+        <div class="card m-3 pb-5 text-center cource-card col-sm-5"
+        style="width: 20rem;">
+        <div>
+        <div>
+          
+       
+        <p class=" name-tag mb-0 small text-left text-muted">Created by</p>
+        <p class=" contrib-name name-tag "> K.Ajay Kumar</p> </div>
+        </div>
+        <img class="card-img-top m-0" 
+            src="images/Analog.jpeg">
+     
+          <div class="card-body  my-0">
+        
+             <h6 class="card-title my-2 p-0 text-left"> Analog Electronics : Learn the Concepts </h6>
+               <a href="#" class="btn font-weight-bold btn-primary px-3 btn-confirm-click">Learn</a>
+          </div>
+          </div>
+         
+        <div class="card m-3 pb-5 text-center cource-card col-sm-5"
+        style="width: 20rem;">
+        <div>
+        <div>
+          
+       
+        <p class=" name-tag mb-0 small text-left text-muted">Created by</p>
+        <p class=" contrib-name name-tag "> K.Ajay Kumar</p> </div>
+        </div>
+        <img class="card-img-top m-0" 
+            src="images/ml.jpeg">
+     
+          <div class="card-body  my-0">
+        
+             <h6 class="card-title my-2 p-0 text-left"> Analog Electronics : Learn the Concepts </h6>
+               <a href="#" class="btn font-weight-bold btn-primary px-3 btn-confirm-click">Learn</a>
+          </div>
+      </div>
+      <div class="card m-3 pb-5 text-center cource-card col-sm-5"
+        style="width: 20rem;">
+        <div>
+        <div>
+          
+       
+        <p class=" name-tag mb-0 small text-left text-muted">Created by</p>
+        <p class=" contrib-name name-tag "> K.Ajay Kumar</p> </div>
+        </div>
+      <img class="card-img-top m-0" 
+            src="images/maths.jpg">
+     
+          <div class="card-body  my-0">
+        
+             <h6 class="card-title my-2 p-0 text-left"> Analog Electronics : Learn the Concepts </h6>
+               <a href="#" class="btn font-weight-bold btn-primary px-3 btn-confirm-click">Learn</a>
+          </div>
+        </div>
+         
+      <div class="card m-3 pb-5 text-center cource-card col-sm-5"
+        style="width: 20rem;">
+        <div>
+        <div>
+          
+       
+        <p class=" name-tag mb-0 small text-left text-muted">Created by</p>
+        <p class=" contrib-name name-tag "> K.Ajay Kumar</p> </div>
+        </div>
+      <img class="card-img-top m-0" 
+            src="images/Analog.jpeg">
+     
+          <div class="card-body  my-0">
+        
+             <h6 class="card-title my-2 p-0 text-left"> Analog Electronics : Learn the Concepts </h6>
+               <a href="#" class="btn font-weight-bold btn-primary 
+         btn-confirm-click px-3 ">Learn</a>
+          </div>
+        </div>
+      <a class=" btn text-white px-5 my-3 py-2 btn-confirm
+      btn-confirm-click btn-primary" href="courses.html">see all courses</a>
+   
+   
+   
+   
+           </div>
+        </div>
+
+
+
+
+
+
+
     {% endblock %}
     
     
